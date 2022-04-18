@@ -9,11 +9,12 @@ public class PlayerMoves {
     boolean make_move(block[][] gameBoard, ArrayList<position> playerMoves) throws IOException
     {
         while(true) {
-            System.out.println("Enter row (1-3) sequential Numbering");
+            System.out.println(" Enter row and column (1-3) sequential Numbering separated by comma");
             Scanner reader = new Scanner(System.in);
-            int r = reader.nextInt();
-            System.out.println("Enter col (1-3) sequential Numbering");
-            int c = reader.nextInt();
+            String entry = reader.nextLine();
+            String[] splitValues = entry.split(",");
+            int r = Integer.parseInt(splitValues[0].trim());
+            int c = Integer.parseInt(splitValues[1].trim());
             if (r < 1 || r > 3 || c < 1 || c > 3) {
                 System.out.print("Invalid entry, reenter position");
                 continue;
